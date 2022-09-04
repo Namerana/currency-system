@@ -1,6 +1,6 @@
     const CurrencySystem = require("currency-system");
     const cs = new CurrencySystem;
-    exports.run = async (client, message, args) => {
+    module.exports.run = async (client, message, args) => {
         let user = args[2].member || message.member;
         if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply("You do not have requied permissions.")
         let wheretoPutMoney = args.get('where_to_put_money');
@@ -18,7 +18,7 @@
         else message.reply(`Successfully added $${money} to ${user.user.username}, ( in ${wheretoPutMoney} )`)
     }
 
-    exports.help = {
+    module.exports.help = {
         name: "addmoney",
         data: {
             name: 'addmoney',

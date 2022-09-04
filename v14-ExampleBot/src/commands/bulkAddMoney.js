@@ -1,6 +1,6 @@
 const CurrencySystem = require("currency-system");
 const cs = new CurrencySystem;
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     let wheretoPutMoney = args.get('where_to_put_money');
     if (wheretoPutMoney) wheretoPutMoney = 'bank';
     else wheretoPutMoney = 'wallet';
@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
     } else message.reply(`Successfully added $${money} to ${result.rawData.length} people!, ( in ${wheretoPutMoney} )`)
 }
 
-exports.help = {
+module.exports.help = {
     name: "addmoneytoallusers",
     data: {
         name: 'addmoneytoallusers',

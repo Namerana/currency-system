@@ -1,6 +1,6 @@
     const CurrencySystem = require("currency-system");
     const cs = new CurrencySystem;
-    exports.run = async (client, message, args) => {
+    module.exports.run = async (client, message, args) => {
 
         let money = args[0].value
         if (isNaN(money)) return message.reply("Amount is not a number.");
@@ -24,7 +24,7 @@
         }
     }
 
-    exports.help = {
+    module.exports.help = {
         name: "gamble",
         data: {
             name: 'gamble',
@@ -38,7 +38,7 @@
         }
     }
 
-    exports.conf = {
+    module.exports.conf = {
         aliases: ["gambling"],
         cooldown: 5
     }

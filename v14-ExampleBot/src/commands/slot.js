@@ -2,7 +2,7 @@ const CurrencySystem = require("currency-system");
 const cs = new CurrencySystem;
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     // Slots code Start here:
     const ifLostmoney = 5000;
     const user = await cs.findUser({
@@ -97,7 +97,7 @@ exports.run = async (client, message, args) => {
 }
 
 
-exports.help = {
+module.exports.help = {
     name: "slot",
     data: {
         name: 'slot',
@@ -106,7 +106,7 @@ exports.help = {
     }
 };
 
-exports.conf = {
+module.exports.conf = {
     aliases: [],
     cooldown: 5 // This number is a seconds, not a milliseconds.
     // 1 = 1 seconds.

@@ -1,6 +1,6 @@
     const CurrencySystem = require("currency-system");
     const cs = new CurrencySystem;
-    exports.run = async (client, message, args) => {
+    module.exports.run = async (client, message, args) => {
 
         let result = await cs.work({
             user: message.user,
@@ -14,7 +14,7 @@
         else message.reply(`You worked as a ${result.workType} and earned $${result.amount}.`)
     }
 
-    exports.help = {
+    module.exports.help = {
         name: "work",
         data: {
             name: 'work',
@@ -23,7 +23,7 @@
         }
     };
 
-    exports.conf = {
+    module.exports.conf = {
         aliases: ["wk", "wr"],
         cooldown: 5 // This number is a seconds, not a milliseconds.
         // 1 = 1 seconds.

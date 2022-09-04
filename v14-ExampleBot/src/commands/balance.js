@@ -1,6 +1,6 @@
     const CurrencySystem = require("currency-system");
     const cs = new CurrencySystem;
-    exports.run = async (client, message, args) => {
+    module.exports.run = async (client, message, args) => {
         const user = message.options.getUser('user') || message.user;
         let result = await cs.balance({
             user: user,
@@ -9,7 +9,7 @@
         return message.reply(`${user.tag}, has $${(result.wallet).toLocaleString()} in there wallet and $${(result.bank).toLocaleString()} in there bank. There Max bank has been set to $${(result.rawData.bankSpace.toLocaleString())}`);
     }
 
-    exports.help = {
+    module.exports.help = {
         name: "balance",
         data: {
             name: 'balance',
@@ -23,7 +23,7 @@
         }
     }
 
-    exports.conf = {
+    module.exports.conf = {
         aliases: ["bal"],
         cooldown: 5
     }

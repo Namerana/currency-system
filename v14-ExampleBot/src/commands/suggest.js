@@ -4,7 +4,7 @@ const {
     EmbedBuilder,
     MessageAttachment
 } = require('discord.js');
-exports.run = async (client, interaction, args) => {
+module.exports.run = async (client, interaction, args) => {
     //const channel = interaction.options.getChannel('channel');
     // const query = interaction.options.getString('suggestion');
     // console.log(args)
@@ -25,7 +25,7 @@ exports.run = async (client, interaction, args) => {
     });
 }
 
-exports.help = {
+module.exports.help = {
     name: "suggest",
     data: {
         name: 'suggest',

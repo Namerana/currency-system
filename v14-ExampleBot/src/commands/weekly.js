@@ -1,6 +1,6 @@
 const CurrencySystem = require("currency-system");
 const cs = new CurrencySystem;
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 
     let result = await cs.weekly({
         user: message.user,
@@ -12,7 +12,7 @@ exports.run = async (client, message, args) => {
     else message.reply(`You have earned $${result.amount}. Your streak is now ${result.rawData.streak.weekly}`);
 }
 
-exports.help = {
+module.exports.help = {
     name: "weekly",
     data: {
         name: 'weekly',
@@ -21,7 +21,7 @@ exports.help = {
     }
 };
 
-exports.conf = {
+module.exports.conf = {
     aliases: [],
     cooldown: 5 // This number is a seconds, not a milliseconds.
     // 1 = 1 seconds.

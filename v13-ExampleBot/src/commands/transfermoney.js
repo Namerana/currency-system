@@ -1,6 +1,6 @@
     const CurrencySystem = require("currency-system");
     const cs = new CurrencySystem;
-    exports.run = async (client, message, args) => {
+    module.exports.run = async (client, message, args) => {
         let user = message.options.getUser('user');
         if (user.id === message.user.id) return message.channel.send(`You can't transfer money to yourself!`);
 
@@ -21,7 +21,7 @@
 
     }
 
-    exports.help = {
+    module.exports.help = {
         name: "transfer",
         data: {
             name: 'transfer',
@@ -43,7 +43,7 @@
 
     };
 
-    exports.conf = {
+    module.exports.conf = {
         aliases: ["pay"],
         cooldown: 5 // This number is a seconds, not a milliseconds.
         // 1 = 1 seconds.

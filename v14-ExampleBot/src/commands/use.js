@@ -1,6 +1,6 @@
 const CurrencySystem = require("currency-system");
 const cs = new CurrencySystem;
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     // !use <item name from your inventory>
     let item = args[0].value;
     if (!item) return message.reply("What item you wana use?")
@@ -38,7 +38,7 @@ exports.run = async (client, message, args) => {
 }
 
 
-exports.help = {
+module.exports.help = {
     name: "use",
     data: {
         name: 'use',
@@ -52,7 +52,7 @@ exports.help = {
     }
 };
 
-exports.conf = {
+module.exports.conf = {
     aliases: [],
     cooldown: 5 // This number is a seconds, not a milliseconds.
     // 1 = 1 seconds.

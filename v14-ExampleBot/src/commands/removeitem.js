@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const CurrencySystem = require("currency-system");
 const cs = new CurrencySystem;
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     if (!args[0].value) return message.reply('Which item to remove?')
     let result = await cs.removeItem({
         guild: message.guild,
@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
 
 }
 
-exports.help = {
+module.exports.help = {
     name: "removeitem",
     data: {
         name: 'removeitem',
@@ -30,7 +30,7 @@ exports.help = {
     }
 };
 
-exports.conf = {
+module.exports.conf = {
     aliases: [],
     cooldown: 5 // This number is a seconds, not a milliseconds.
     // 1 = 1 seconds.

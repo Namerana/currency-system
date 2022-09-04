@@ -1,6 +1,6 @@
 const CurrencySystem = require("currency-system");
 const cs = new CurrencySystem;
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     const user = message.options.getUser('user') || message.user;
 
     let result = await cs.setBankSpace(user.id, message.guild.id, message.options.getInteger('amount') || 0);
@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
 
 }
 
-exports.help = {
+module.exports.help = {
     name: "setbankspace",
     data: {
         name: 'setbankspace',
@@ -30,7 +30,7 @@ exports.help = {
     }
 }
 
-exports.conf = {
+module.exports.conf = {
     aliases: ["sets"],
     cooldown: 5
 }

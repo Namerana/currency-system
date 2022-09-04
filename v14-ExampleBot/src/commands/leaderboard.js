@@ -2,7 +2,7 @@ const CurrencySystem = require("currency-system");
 const Discord = require("discord.js");
 const cs = new CurrencySystem();
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
   let data = await cs.leaderboard(message.guild.id);
   if (data.length < 1) return message.reply("Nobody's in leaderboard yet.");
   const msg = new Discord.EmbedBuilder();
@@ -26,7 +26,7 @@ exports.run = async (client, message, args) => {
     .catch();
 };
 
-exports.help = {
+module.exports.help = {
   name: "leaderboard",
   data: {
     name: "leaderboard",
@@ -35,7 +35,7 @@ exports.help = {
   },
 };
 
-exports.conf = {
+module.exports.conf = {
   aliases: ["lb"],
   cooldown: 5,
 };

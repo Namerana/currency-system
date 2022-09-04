@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const CurrencySystem = require("currency-system");
 const cs = new CurrencySystem;
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     // Command Start's here
     let result = await cs.info(message.user.id, message.guild.id);
     const embed = new Discord.EmbedBuilder()
@@ -22,7 +22,7 @@ exports.run = async (client, message, args) => {
     // Commands Stop's here.
 }
 
-exports.help = {
+module.exports.help = {
     name: "info",
     data: {
         name: 'info',
@@ -31,7 +31,7 @@ exports.help = {
     }
 };
 
-exports.conf = {
+module.exports.conf = {
     aliases: ['i'],
     cooldown: 5 // This number is a seconds, not a milliseconds.
     // 1 = 1 seconds.

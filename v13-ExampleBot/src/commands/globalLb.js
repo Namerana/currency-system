@@ -2,7 +2,7 @@ const CurrencySystem = require("currency-system");
 const Discord = require("discord.js");
 const cs = new CurrencySystem;
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     let data = await cs.globalLeaderboard();
     if (data.length < 1) return message.reply("Nobody's in Global leaderboard yet.");
     const msg = new Discord.MessageEmbed();
@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
 
 }
 
-exports.help = {
+module.exports.help = {
     name: "globallb",
     data: {
         name: 'globallb',
@@ -29,7 +29,7 @@ exports.help = {
     }
 }
 
-exports.conf = {
+module.exports.conf = {
     aliases: ["glb"],
     cooldown: 5
 }

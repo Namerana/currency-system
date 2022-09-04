@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const CurrencySystem = require("currency-system");
 const cs = new CurrencySystem;
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     await message.deferReply();
     if (message.options.getInteger('price') < 1) return message.editReply("You can't add an item for less than 1$!");
     let result = await cs.addItem({
@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
 
 }
 
-exports.help = {
+module.exports.help = {
     name: "additem",
     data: {
         name: 'additem',
@@ -50,7 +50,7 @@ exports.help = {
     }
 };
 
-exports.conf = {
+module.exports.conf = {
     aliases: [],
     cooldown: 5 // This number is a seconds, not a milliseconds.
     // 1 = 1 seconds.

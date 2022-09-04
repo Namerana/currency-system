@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const CurrencySystem = require("currency-system");
 const cs = new CurrencySystem;
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     let thing = args[0].value
     if (!thing) return message.reply('Please provide item number')
     if (isNaN(thing)) return message.reply('Please provide valid item number')
@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
 
 }
 
-exports.help = {
+module.exports.help = {
     name: "buy",
     data: {
         name: 'buy',
@@ -32,7 +32,7 @@ exports.help = {
     }
 };
 
-exports.conf = {
+module.exports.conf = {
     aliases: ['b'],
     cooldown: 5 // This number is a seconds, not a milliseconds.
     // 1 = 1 seconds.

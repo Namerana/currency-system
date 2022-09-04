@@ -1,6 +1,6 @@
     const CurrencySystem = require("currency-system");
     const cs = new CurrencySystem;
-    exports.run = async (client, message, args) => {
+    module.exports.run = async (client, message, args) => {
         let user = args[0].user
         if (user.bot || user === client.user) return message.reply("This user is a bot.");
         if (!user) return message.reply('Sorry, you forgot to mention somebody.');
@@ -26,7 +26,7 @@
 
     }
 
-    exports.help = {
+    module.exports.help = {
         name: "rob",
         data: {
             name: 'rob',
@@ -40,7 +40,7 @@
         }
     };
 
-    exports.conf = {
+    module.exports.conf = {
         aliases: [],
         cooldown: 5 // This number is a seconds, not a milliseconds.
         // 1 = 1 seconds.

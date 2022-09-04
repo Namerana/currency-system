@@ -1,6 +1,6 @@
     const CurrencySystem = require("currency-system");
     const cs = new CurrencySystem;
-    exports.run = async (client, message, args) => {
+    module.exports.run = async (client, message, args) => {
 
         let money = args[0].value
         if (!money) return message.reply("Enter the amount you want to withdraw.");
@@ -22,7 +22,7 @@
         }
     }
 
-    exports.help = {
+    module.exports.help = {
         name: "withdraw",
         data: {
             name: 'withdraw',
@@ -36,7 +36,7 @@
         }
     }
 
-    exports.conf = {
+    module.exports.conf = {
         aliases: ["wd"],
         cooldown: 5
     }

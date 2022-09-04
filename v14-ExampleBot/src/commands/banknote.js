@@ -1,6 +1,6 @@
 const CurrencySystem = require("currency-system");
 const cs = new CurrencySystem;
-exports.run = async (client, message) => {
+module.exports.run = async (client, message) => {
     const arr = await cs.getUserItems({
         user: message.user,
         guild: message.guild.id
@@ -27,7 +27,7 @@ exports.run = async (client, message) => {
     };
 }
 
-exports.help = {
+module.exports.help = {
     name: "banknote",
     data: {
         name: "banknote",
@@ -36,7 +36,7 @@ exports.help = {
     }
 };
 
-exports.conf = {
+module.exports.conf = {
     aliases: [],
     cooldown: 5 // This number is a seconds, not a milliseconds.
     // 1 = 1 seconds.
