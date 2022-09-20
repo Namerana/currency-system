@@ -1,5 +1,3 @@
-const fs = require("fs");
-const event = require("./classes/functions").cs;
 /**
  * @author Silent-Coder
  * @license Apache-2.0
@@ -10,10 +8,9 @@ const event = require("./classes/functions").cs;
 const {
   findUser,
   getInventory,
-  saveUser,
   connect,
-  updateInventory,
-} = require("./classes/functions");
+  event,
+} = require("./functions/global");
 /**
  * @class CurrencySystem
  */
@@ -118,7 +115,7 @@ class CurrencySystem {
     };
   }
   async setItems(settings) {
-   // let inventoryData = await getInventory(settings);
+    // let inventoryData = await getInventory(settings);
 
     if (!settings.shop)
       return {
@@ -231,15 +228,15 @@ class CurrencySystem {
   }
 }
 
-Object.assign(CurrencySystem.prototype, require("./classes/functions"));
+Object.assign(CurrencySystem.prototype, require("./functions/global"));
 module.exports = CurrencySystem;
 
-function _getDbURL() {
-  let url = process.mongoURL;
-  if (require("mongoose").connections.length)
-    url = require("mongoose").connections[0]._connectionString;
-  return url;
-}
+// function _getDbURL() {
+//   let url = process.mongoURL;
+//   if (require("mongoose").connections.length)
+//     url = require("mongoose").connections[0]._connectionString;
+//   return url;
+// }
 module.exports.cs = event;
 
 async function _buy(settings) {
