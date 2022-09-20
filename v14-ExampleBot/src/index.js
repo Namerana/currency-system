@@ -11,12 +11,8 @@ const client = new discord.Client({
   },
 });
 client.commands = new discord.Collection();
-const {
-  token,
-  mongourl,
-} = require("./config.json");
+const { token, mongourl } = require("./config.json");
 const CurrencySystem = require("currency-system");
-
 const cs = new CurrencySystem();
 // Debug logs! Help in finding issues!
 CurrencySystem.cs
