@@ -250,8 +250,6 @@ class CurrencySystem {
         }
       }
     }
-    let { type, error } = data_error;
-
     if (done == false) return data_error;
 
     require("./models/currency").findOneAndUpdate(
