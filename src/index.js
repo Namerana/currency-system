@@ -201,8 +201,6 @@ class CurrencySystem {
       data.inventory.splice(i, 1);
       done = true;
 
-      console.log(data_user)
-
     } else {
       for (let i in data.inventory) {
         if (data.inventory[i] === data.inventory[thing]) {
@@ -233,9 +231,10 @@ class CurrencySystem {
             // If number specified
           } else if (settings?.amount !== "all") {
             // If number specified is greater to number item in inventory
-            if (settings.amount > data.inventory[i].amount) return data_error.type = "Amount";
-
-            else {
+            if (settings.amount > data.inventory[i].amount){
+            done = false;
+            data_error.type = "Amount";
+          } else {
               data.inventory[i].amount -= settings.amount;
 
               let data_to_save = {
@@ -251,8 +250,9 @@ class CurrencySystem {
         }
       }
     }
-    if (done == false)
-      return data_error;
+    let { type, error } = data_error;
+
+    if (done == false) return data_error;
 
     require("./models/currency").findOneAndUpdate(
       {
