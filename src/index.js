@@ -192,8 +192,8 @@ class CurrencySystem {
       let i = data.inventory.findIndex(i => i === data.inventory.filter(inv => inv.name === thing)) + 1;
 
       let data_to_save = {
-        item_length: 0,
-        item_name: data.inventory[i].name,
+        count: 0,
+        name: data.inventory[i].name,
         deleted_amount: data.inventory[i].amount
       }
       data_user = data_to_save;
@@ -209,8 +209,8 @@ class CurrencySystem {
             data.inventory[i].amount--;
 
             let data_to_save = {
-              item_length: data.inventory[i].amount,
-              item_name: data.inventory[i].name,
+              count: data.inventory[i].amount,
+              name: data.inventory[i].name,
               deleted_amount: 1
             }
 
@@ -219,8 +219,8 @@ class CurrencySystem {
             // If in inventory the number of item is equal to 1 and no amount specified
           } else if (data.inventory[i].amount === 1 && !settings?.amount) {
             let data_to_save = {
-              item_length: 0,
-              item_name: data.inventory[i].name,
+              count: 0,
+              name: data.inventory[i].name,
               deleted_amount: 1
             }
 
@@ -231,21 +231,25 @@ class CurrencySystem {
             // If number specified
           } else if (settings?.amount !== "all") {
             // If number specified is greater to number item in inventory
-            if (settings.amount > data.inventory[i].amount){
+            if (settings.amount > data.inventory[i].amount) {
             done = false;
-            data_error.type = "Amount";
+            data_error.type = "invalid-amount";
+          } else if (String(settings.amount).includes("-")) {
+            done = false;
+            data_error.type = "negative-amount"
+            
           } else {
-              data.inventory[i].amount -= settings.amount;
+            data.inventory[i].amount -= settings.amount;
 
-              let data_to_save = {
-                item_length: data.inventory[i].amount,
-                item_name: data.inventory[i].name,
-                deleted_amount: settings.amount
-              };
-
-              data_user = data_to_save;
-              done = true;
-            }
+            let data_to_save = {
+              count: data.inventory[i].amount,
+              name: data.inventory[i].name,
+              deleted: settings.amount
+            };
+  
+            data_user = data_to_save;
+            done = true;
+          }
           }
         }
       }
